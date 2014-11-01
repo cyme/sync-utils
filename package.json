@@ -1,18 +1,18 @@
 {
   "name": "sync-utils",
-  "description": "Node.js promise-based semaphore, condition, timer and other thread control objects",
-  "version": "0.1.0",
+  "description": "Node.js promise-based semaphore, condition, timer and other flow control objects",
+  "version": "0.1.2",
   "author": {
     "name": "Cyril Meurillon",
-    "email": "cyril@pobox.com",
+    "email": "cyril@pobox.com"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/cyme/sync-utils"
+    "url": "https://github.com/cyme/sync-utils.git"
   },
   "dependencies": {
-    "es6-shim": ">= 0.16.0",
+    "es6-shim": ">= 0.16.0"
   },
   "engines": {
     "node": ">= 0.8"
