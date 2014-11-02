@@ -56,25 +56,36 @@ var Semaphore = require('sync-utils').Semaphore;
 // condition demonstration
 
 var myCondition = new Condition();
-
 myCondition.wait().then(function() {
+    // this gets executed when the condition turns true
     console.log('condition has been fulfilled');
 });
+...
+// set the condition to true at some point
 myCondition.signal();
 
 // timer demonstration
 
 var myTimer = new Timer(5000);
 myTimer.wait().then(function() {
+    // this gets executed when the timer has elapsed
     console.log('timer has elapsed');
+});
+
+Timer.defer().then(function() {
+    // do something asynchronously here at the next tick of the event loop
+    ...
 });
 
 // semaphore demonstration
 
 var mySemaphore = new Semaphore(0);
 mySemaphore.wait().then(function() {
-    console.log('semaphore was release');
+    // this gets executed when the semaphore is released
+    console.log('semaphore was released');
 });
+...
+// release the semaphore at some point
 mySemaphore.signal();
 
 // promise demonstration
@@ -82,12 +93,8 @@ mySemaphore.signal();
 var myFirstPromise = ...;
 var mySecondPromise = ...;
 Promise.settle([myFirstPromise, mySecondPromise])
-.then(function(results) {
-    // all went well
-    ...
-})
 .catch(function(reason) {
-    // something went wrong
+    // one or both of the promises have rejected
 
     // go over the promises that did resolve
     reason.resolved.forEach(function(value) {
@@ -102,7 +109,25 @@ Promise.settle([myFirstPromise, mySecondPromise])
             continue;
         ...
     });
+})
+.then(function(results) {
+    // both promises have succesfully resolved
+    ...
 });
+
+
+Promise.evaluate(function() {
+    // do something here
+    ...
+})
+.catch(function(reason) {
+    // deal with errors and throws here
+    ...
+})
+.then(function(result) {
+    // or do something else if no error
+    ...
+})
 ```
 
 # Getting Started
