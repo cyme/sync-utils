@@ -34,6 +34,8 @@ sync-utils is a Node.js module that offers synchronization primitives based on t
 
 `Timer.prototype.signal()` cancels a timer. The Promise rejects.
 
+`Timer.defer()` is a static method returning a Promise that resolves on the next tick of the event loop.
+
 ### Promise extensions
 
 The following static methods have been added to Promise for convenience.
