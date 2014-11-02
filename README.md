@@ -106,3 +106,7 @@ Promise.settle([myFirstPromise, mySecondPromise])
 # Getting Started
 
 To install sync-utiles, simply `npm install sync-utils`.
+
+# Credits
+
+Special thanks to Paul Miller for his excellent ECMAScript 6 shim module `es6-shim`, which we're using here for its implementation of the Promise object.
