@@ -53,6 +53,10 @@ var Condition = require('sync-utils').Condition;
 var Timer = require('sync-utils').Timer;
 var Semaphore = require('sync-utils').Semaphore;
 
+// do this if you only use the Promise extensions
+require('sync-utils');
+
+
 // condition demonstration
 
 var myCondition = new Condition();
